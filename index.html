@@ -1,0 +1,754 @@
+﻿<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>नसीराबाद घर की कहानी</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --saffron:    #c8622a;
+      --saffron-lt: #f5e6d8;
+      --gold:       #b8860b;
+      --cream:      #fdf8f2;
+      --paper:      #fff9f2;
+      --ink:        #2c1a0e;
+      --ink-soft:   #5c3d2e;
+      --rule:       #d4b896;
+      --link:       #7a3e10;
+      --link-hover: #c8622a;
+      --quote-bg:   #f7efe4;
+      --quote-bar:  #c8622a;
+      --tag-bg:     #f0e4d4;
+      --tag-text:   #7a3e10;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Hind', 'Noto Sans Devanagari', sans-serif;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    /* ── Layout ── */
+    .page-wrap {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    nav {
+      background: var(--ink);
+      color: #e8d9c8;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 2rem 0;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    nav .nav-brand {
+      padding: 0 1.4rem 1.5rem;
+      border-bottom: 1px solid #3e2a1a;
+      margin-bottom: 1rem;
+    }
+
+    nav .nav-brand h2 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #f5d9a8;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      line-height: 1.4;
+    }
+
+    nav .nav-brand p {
+      margin: 0.3rem 0 0;
+      font-size: 11px;
+      color: #9e8070;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 0.45rem 1.4rem;
+      color: #c8b8a8;
+      text-decoration: none;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 13px;
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: #3e2a1a;
+      color: #f5d9a8;
+      border-left-color: var(--saffron);
+    }
+
+    nav .nav-section-label {
+      padding: 1rem 1.4rem 0.3rem;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6e5040;
+      font-family: sans-serif;
+    }
+
+    /* ── Main Content ── */
+    main {
+      background: var(--paper);
+      padding: 3.5rem 4rem 5rem;
+      max-width: 860px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid var(--rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--saffron);
+      margin: 0 0 0.4rem;
+      line-height: 1.3;
+    }
+
+    .hero .subtitle {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      margin: 0 0 1.8rem;
+    }
+
+    .property-card {
+      display: inline-block;
+      background: var(--saffron-lt);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1rem 1.8rem;
+      text-align: left;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .property-card .label {
+      font-weight: 600;
+      color: var(--saffron);
+      margin-right: 0.4rem;
+    }
+
+    /* ── Section Headings ── */
+    h2 {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--saffron);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.4rem;
+      margin: 3rem 0 1.2rem;
+    }
+
+    h3 {
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin: 2rem 0 0.8rem;
+    }
+
+    /* ── Body text ── */
+    p {
+      margin: 0 0 1.1rem;
+      font-family: 'Tiro Devanagari Hindi', serif;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    /* ── Blockquotes ── */
+    blockquote {
+      background: var(--quote-bg);
+      border-left: 4px solid var(--quote-bar);
+      margin: 1.4rem 0;
+      padding: 1rem 1.4rem;
+      border-radius: 0 4px 4px 0;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      font-size: 1rem;
+      color: var(--ink-soft);
+    }
+
+    blockquote p { margin: 0 0 0.6rem; }
+    blockquote p:last-child { margin: 0; }
+
+    /* ── Lists ── */
+    ul, ol {
+      padding-left: 1.6rem;
+      margin: 0.5rem 0 1rem;
+      font-family: 'Tiro Devanagari Hindi', serif;
+    }
+
+    li { margin-bottom: 0.35rem; }
+
+    /* ── Document reference links ── */
+    .doc-ref {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      text-decoration: none;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: 'Hind', sans-serif;
+      font-weight: 500;
+      border: 1px solid var(--rule);
+      transition: background 0.15s, color 0.15s;
+      margin: 0.2rem 0.3rem 0.2rem 0;
+    }
+
+    .doc-ref:hover {
+      background: var(--saffron);
+      color: white;
+      border-color: var(--saffron);
+    }
+
+    .doc-ref::before { content: "📄"; font-size: 12px; }
+
+    .doc-ref-group {
+      margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0 1.6rem;
+      font-size: 15px;
+      font-family: 'Hind', sans-serif;
+    }
+
+    thead tr {
+      background: var(--saffron);
+      color: white;
+    }
+
+    thead th {
+      padding: 0.6rem 0.9rem;
+      text-align: left;
+      font-weight: 600;
+      font-family: 'Tiro Devanagari Hindi', serif;
+    }
+
+    tbody tr:nth-child(even) { background: var(--saffron-lt); }
+    tbody tr:nth-child(odd)  { background: var(--paper); }
+
+    tbody td {
+      padding: 0.55rem 0.9rem;
+      border-bottom: 1px solid var(--rule);
+      font-family: 'Tiro Devanagari Hindi', serif;
+    }
+
+    tbody td a {
+      color: var(--link);
+      text-decoration: none;
+      font-family: 'Hind', sans-serif;
+      font-size: 13px;
+    }
+
+    tbody td a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    /* ── HR ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5rem 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--rule);
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-family: 'Hind', sans-serif;
+      text-align: center;
+    }
+
+    /* ── Reference section ── */
+    .ref-section {
+      background: var(--saffron-lt);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-top: 3rem;
+    }
+
+    .ref-section h2 {
+      border-bottom-color: var(--saffron);
+      margin-top: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 800px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      nav {
+        position: static;
+        height: auto;
+        padding: 1rem 0;
+      }
+      main { padding: 2rem 1.4rem 3rem; }
+      .hero h1 { font-size: 1.8rem; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      nav { display: none; }
+      .page-wrap { grid-template-columns: 1fr; }
+      main { max-width: 100%; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ── Sidebar Navigation ── -->
+  <nav>
+    <div class="nav-brand">
+      <h2>नसीराबाद घर की कहानी</h2>
+      <p>मकान नं. 532–533</p>
+    </div>
+    <ul>
+      <li class="nav-section-label">कहानी</li>
+      <li><a href="#bhaag-1">भाग १ · नींव (1900–1926)</a></li>
+      <li><a href="#bhaag-2">भाग २ · नारायण शर्मा</a></li>
+      <li><a href="#bhaag-3">भाग ३ · लाजपत राय शर्मा</a></li>
+      <li><a href="#bhaag-4">भाग ४ · रामदयाल शर्मा</a></li>
+      <li><a href="#bhaag-5">भाग ५ · परिवार की महिलाएँ</a></li>
+      <li><a href="#bhaag-6">भाग ६ · अधिकार की खोज</a></li>
+      <li><a href="#bhaag-7">भाग ७ · छावनी बोर्ड रिकॉर्ड</a></li>
+      <li><a href="#bhaag-8">भाग ८ · संपत्ति सोती रही</a></li>
+      <li><a href="#bhaag-9">भाग ९ · परिवार जागा (2024)</a></li>
+      <li><a href="#bhaag-10">भाग १० · अजमेर यात्रा</a></li>
+      <li><a href="#bhaag-11">भाग ११ · लम्बी बातचीत</a></li>
+      <li><a href="#bhaag-12">भाग १२ · अंतिम निर्णय</a></li>
+      <li><a href="#epilogue">उपसंहार</a></li>
+      <li class="nav-section-label">दस्तावेज़</li>
+      <li><a href="#references">संदर्भ दस्तावेज़</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Main Content ── -->
+  <main>
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>नसीराबाद घर की कहानी</h1>
+      <p class="subtitle">मूल दस्तावेज़ों से निर्मित — एक परिवार का सौ साल का इतिहास</p>
+      <div class="property-card">
+        <div><span class="label">संपत्ति:</span> मकान नं. 532–533, रामदयाल मोहल्ला (पूर्व: व्हाइट रोड), नसीराबाद छावनी, राजस्थान</div>
+        <div><span class="label">सर्वे नं.:</span> 280/751 और 280/752 — कुल क्षेत्रफल लगभग <strong>1,525 वर्ग फुट</strong></div>
+        <div><span class="label">NCB फ़ाइल:</span> NCB/Land/H.No./532-533, Vol. I — RBID: ANASIR00706, ANASIR00709</div>
+      </div>
+    </div>
+
+    <!-- ── भाग एक ── -->
+    <h2 id="bhaag-1">भाग एक: नींव — गोवर्धन खाती जी का नसीराबाद (~1900–1926)</h2>
+
+    <p>नसीराबाद — राजस्थान की वह छावनी जो अजमेर के पास मैदानी इलाके में बसी थी और जिसे ब्रिटिश भारतीय सेना के गैरिसन के इर्द-गिर्द बनाया गया था — इस शहर में एक साधारण परंतु गहरे स्वभाव के व्यक्ति रहते थे: <strong>गोवर्धन खाती</strong> (जिन्हें गोवर्धन लाल भी कहा जाता था)। वे जाति से कारीगर थे, परंतु उनका चरित्र असाधारण था। व्हाइट रोड पर उनका एक भूखंड था — एक संपत्ति जो अगले सौ वर्षों तक उनके परिवार की कहानी को आगे ले जाती रही।</p>
+
+    <p>गोवर्धन की दो पत्नियाँ थीं। पहली पत्नी <strong>कस्तूरी देवी</strong> से उनका एक पुत्र हुआ — <strong>नारायण</strong>। दूसरी पत्नी <strong>चम्पावती देवी</strong> से एक और पुत्र हुआ — <strong>लाजपत राय</strong>। दोनों भाई — खून के हिसाब से सौतेले, पर रिश्ते के हिसाब से सगे — उसी व्हाइट रोड के घर में पले-बढ़े और अपने-अपने रास्ते पर चले गए।</p>
+
+    <h3>1921 का पंजीकृत विलेख</h3>
+
+    <p><strong>19 अगस्त 1921</strong> को नसीराबाद छावनी में एक ऐतिहासिक दस्तावेज़ तैयार हुआ — एक संपत्ति विलेख (रजिस्टर्ड डीड), जो उर्दू भाषा में ब्रिटिश भारतीय स्टांप पेपर (3 रुपये — 2 रुपये और 1 रुपये के स्टांप) पर लिखा गया था। इस विलेख पर <strong>कैप्टन जे.एच. राइली लुईस</strong>, ब्रिटिश सब-रजिस्ट्रार नसीराबाद, ने लाल स्याही से हस्ताक्षर किए — पृष्ठ 2 और 3 पर उनकी यह लाल हस्ताक्षर और सब-रजिस्ट्रार नसीराबाद की गोल लाल मुहर आज भी दिखती है।</p>
+
+    <p>इस विलेख में उल्लिखित पक्ष और गवाह थे: <strong>गोर्धन</strong> (के. गोर्धन), <strong>बलराम</strong> (ई. बलराम), और <strong>मोलाल</strong> (के. शोलाल/मोलाल)। यह दस्तावेज़ <strong>गोवर्धन खाती</strong> को नसीराबाद छावनी में इस संपत्ति का कानूनी स्वामी स्थापित करता है। यही वह आधार है जिस पर आगे के सभी दस्तावेज़ टिके हैं।</p>
+
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/01_Registered_Deed_1921/Deed_Page_1.pdf">विलेख पृष्ठ 1</a>
+      <a class="doc-ref" href="References/01_Registered_Deed_1921/Deed_Page_2.pdf">विलेख पृष्ठ 2</a>
+      <a class="doc-ref" href="References/01_Registered_Deed_1921/Deed_Page_3.pdf">विलेख पृष्ठ 3</a>
+    </div>
+
+    <h3>1925 के छावनी कार्यालय रिकॉर्ड</h3>
+
+    <p>विलेख के चार साल बाद, छावनी प्रशासन की फ़ाइलों में <strong>मकान नं. 533</strong> के बारे में दो उर्दू पत्र दर्ज हुए।</p>
+    <ul>
+      <li><strong>14 अप्रैल 1925</strong> (फ़ाइल 38): "गंगादानी" के हस्ताक्षर से एक आंतरिक पत्र।</li>
+      <li><strong>27 अप्रैल 1925</strong> (फ़ाइल 36/37): नीचे एक महत्वपूर्ण अंग्रेज़ी टिप्पणी:</li>
+    </ul>
+    <blockquote>
+      <p><em>"I beg to report that there is no chabutra [raised platform] attached to house no. 533."</em><br>— Signed: Gironn Ka Land Owner, 27/4/25</p>
+    </blockquote>
+    <p>यह दर्शाता है कि छावनी बोर्ड उस समय प्रत्येक मकान की भौतिक संरचना का सावधानीपूर्वक रिकॉर्ड रखता था।</p>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/02_Cantonment_Office_Files_1925/Office_File_36_37_Page_1.pdf">छावनी फ़ाइल 36/37</a>
+      <a class="doc-ref" href="References/02_Cantonment_Office_Files_1925/Office_File_36_37_Page_2.pdf">छावनी फ़ाइल 38</a>
+    </div>
+
+    <h3>1926 का संकट और चम्पाबाई की घोषणा</h3>
+
+    <p>1926 में गोवर्धन खाती गंभीर रूप से बीमार थे। किसी ने उनसे — बताया जाता है कि भ्रमित या दबाव की स्थिति में, और उनके बड़े बेटे नारायण की जानकारी के बिना — <strong>10 जून 1926</strong> को एक <em>वसियतनामा</em> (वसीयत) रजिस्टर करवाया, जो औपचारिक रूप से <strong>21 जून 1926</strong> को पंजीकृत हुई।</p>
+
+    <p>गोवर्धन के निधन के बाद उनकी विधवा <strong>चम्पाबाई (चम्पावती देवी)</strong> ने एक असाधारण कदम उठाया। <strong>2 जुलाई 1926</strong> को, दो गवाहों — <strong>अब्दुल वहाब पुत्र गफुरखान, नसीराबाद</strong> और <strong>कानी राम पुत्र नौज़राम</strong> — के सामने उन्होंने हिंदी/उर्दू में एक घोषणा लिखी और हस्ताक्षर किए, जिसने उस वसीयत को अमान्य कर दिया। उनके शब्द थे:</p>
+
+    <blockquote>
+      <p><em>"जो वसियतनामा रजिस्टर हुआ है, वह ग़लत-रद समझा जाए। मेरे पति गोर्धन ने पूरे होश-हवास में आकर स्वयं कहा था कि इसे रद्द माना जाए। उनकी संपत्ति — चल और अचल, घर और उसकी सब सामग्री — उनके दोनों पुत्रों: नारायण और लाजपत (उस समय नाबालिग) दोनों की है।"</em></p>
+      <p><em>"मैं, अपनी और अपने नाबालिग पुत्र लाजपत की ओर से घोषणा करती हूँ कि इस वसीयत के आधार पर कोई दावा नहीं करूँगी और न कोई अधिकार माँगूँगी। यह मैं अपनी स्वतंत्र इच्छा से लिखती हूँ, ताकि भविष्य में काम आए।"</em></p>
+    </blockquote>
+
+    <p>1920 के दशक में एक विधवा का यह साहसिक कार्य अतुलनीय है। चम्पाबाई ने दो गवाहों और एक मुहर के साथ अपने दोनों बेटों — नारायण और लाजपत — की समान विरासत सुरक्षित की।</p>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/03_Champabai_Declaration_1926/Champabai_Declaration_1926.jpeg">चम्पाबाई की घोषणा (1926)</a>
+    </div>
+
+    <hr>
+
+    <!-- ── भाग दो ── -->
+    <h2 id="bhaag-2">भाग दो: नारायण शर्मा — ईमानदार ओवरसियर (1900–~1980)</h2>
+
+    <p><strong>नारायण शर्मा</strong>, गोवर्धन के बड़े पुत्र, नसीराबाद में ही रहे। उन्होंने ब्रिटिश छावनी प्रशासन में नौकरी ली और <strong>ओवरसियर</strong> के पद तक पहुँचे — वह व्यक्ति जो भूखंडों का सर्वे करता था, इमारतों का निरीक्षण करता था, और छावनी की भौतिक व्यवस्था बनाए रखता था।</p>
+
+    <p><strong>15 जून 1970</strong> का अनाधिकृत निर्माण रिपोर्ट दर्शाता है कि उस समय संपत्ति का स्वामित्व <strong>नारायण पुत्र गोर्धन</strong> के नाम पर दर्ज था। रिपोर्ट में दर्ज है:</p>
+    <blockquote>
+      <p><em>"H. No. 533 के मालिक ने बिना अनुमति के निर्माण कार्य किया है: रिक्त स्थल पर दो नई ईंट की दीवारें बनाई गईं: (i) 13'-10" × 4½" × 4' और (ii) 8'-7" × 4½" × 4'।"</em></p>
+      <p><em>"यह स्थल NCA (नसीराबाद छावनी क्षेत्र) में है। यह प्रकरण CAC (छावनी सलाहकार समिति) के समक्ष रखा जाए।"</em></p>
+    </blockquote>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/04_Construction_Report_1970/Unauthorized_Construction_Report_1970.pdf">अनाधिकृत निर्माण रिपोर्ट 1970</a>
+    </div>
+
+    <h3>नारायण जी की जीवन-गाथा — ईमानदारी के किस्से</h3>
+
+    <p>नारायण जी को उनके बच्चे <em>बाउजी</em> कहते थे। उनके बारे में जो किस्से परिवार में प्रचलित हैं, वे असाधारण नैतिक चरित्र की कहानियाँ हैं।</p>
+
+    <p><strong>मिले हुए पैसे:</strong> एक बार तीन साल का एक बच्चा — एक छोटे व्यापारी परिवार का — कपड़े की थैली लेकर उनके घर के सामने से गुज़रा। बाउजी ने बरामदे में बैठे-बैठे पूछा, थैली में क्या है। बच्चे ने निर्दोषता से दे दी। अंदर थे <strong>₹6,000 नकद</strong>। घंटों बाद जब चिंतित परिवार ढूँढते आया, बाउजी ने एक-एक पैसा वापस कर दिया — बिना एक क्षण की झिझक के।</p>
+
+    <p><strong>रिश्वत का सवाल:</strong> जब हरिश जी ने एक दिन सीधे पूछा: <em>"आप ओवरसियर हैं — क्या आपने कभी रिश्वत ली?"</em> बाउजी ने शांत गरिमा से जवाब दिया: <em>"रिश्वत मिलती है तो ले सकता था। पर जब कोई पूछे कि ली या नहीं, तो झूठ नहीं बोल सकता। मैंने अपनी ज़िंदगी में कभी झूठ नहीं बोला। इसलिए ऐसे काम नहीं किए।"</em></p>
+
+    <p><strong>अन्यायपूर्ण आदेश:</strong> एक जूनियर ब्रिटिश अधिकारी बार-बार बाउजी को दूर पहाड़ी पर चोरों की निगरानी के लिए भेजता था — हर बार दो-तीन घंटे का सफर। एक बार एक वरिष्ठ अधिकारी को पता चला तो उसने तुरंत उस जूनियर को निलंबित कर दिया और बाउजी से कहा: <em>"आगे से ऐसा हो तो मुझे बताना।"</em></p>
+
+    <p>बुढ़ापे में भी बाउजी 400 मीटर दूर पुस्तकालय पैदल जाते थे। अंग्रेज़ी अखबार पूरा पढ़ते थे। जब हरिश जी कोश में 25 अक्षरों के शब्द देखकर पूछते, बाउजी — बिना किसी विश्वविद्यालय की डिग्री के — सही वर्तनी बताते और हिंदी अर्थ भी।</p>
+
+    <blockquote>
+      <p><em>"बाउजी के साथ 25 साल रहा। उस दौरान उन्हें आराम से अधिक तकलीफ दी — यह मैं पूरे दिल से स्वीकारता हूँ। लेकिन उनके शुद्ध जीवन का आशीर्वाद इस परिवार को हर तूफान से बचाता आया है — कोविड की दोनों लहरों में भी।"</em><br>— हरिश शर्मा</p>
+    </blockquote>
+
+    <p>नारायण जी ने दो विवाह किए। पहली पत्नी <strong>गनासी देवी</strong> से एक पुत्र: <strong>रामदयाल शर्मा</strong>। दूसरी पत्नी <strong>गेंदी देवी</strong> से पाँच पुत्र और एक पुत्री: <strong>राम चरण शर्मा, बाल कृष्ण शर्मा, प्रवीण शर्मा, उषा कुमार</strong> (पुत्री), और <strong>हरिश शर्मा</strong>।</p>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/09_Family_Documents/Parivaar_Ki_Yaadein.docx">परिवार की यादें — हरिश शर्मा</a>
+    </div>
+
+    <hr>
+
+    <!-- ── भाग तीन ── -->
+    <h2 id="bhaag-3">भाग तीन: लाजपत राय शर्मा — प्रोफ़ेसर (1923–2009)</h2>
+
+    <p><strong>लाजपत राय शर्मा</strong> — नारायण जी के बच्चे जिन्हें <em>काकाजी</em> कहते थे — का जन्म <strong>15 अक्टूबर 1923</strong> को नसीराबाद में हुआ। परिवार मानता है कि नारायण जी (बड़े भाई) ने लाजपत राय की पढ़ाई का खर्च उठाया। लाजपत राय जी ने यह कर्ज़ कई गुना लौटाया।</p>
+
+    <p>उन्होंने अजमेर में प्रारंभिक शिक्षा ली, फिर <strong>आगरा विश्वविद्यालय से अंग्रेज़ी में M.A.</strong> किया। 1948 में <strong>कस्तूरी देवी शर्मा</strong> से विवाह हुआ। उनके छः बच्चे: <strong>मंजु, दिनेश, राजनी</strong> (स्वर्गीय राकेश शर्मा की पत्नी), <strong>बीना, दीपा</strong> और <strong>योगेश</strong>।</p>
+
+    <p>उनका कार्यकाल:</p>
+    <ul>
+      <li><strong>1947–1958:</strong> चंदौसी (U.P.), अजमेर और जयपुर के कॉलेजों में अंग्रेज़ी के प्रोफ़ेसर</li>
+      <li><strong>1958–1962:</strong> <strong>काठमांडू, नेपाल</strong> में अंग्रेज़ी के प्रोफ़ेसर — <strong>कोलम्बो प्लान</strong> के तहत नियुक्त (ग्रेट ब्रिटेन द्वारा 1950 में स्थापित 27-देशों का क्षेत्रीय विकास संगठन)</li>
+      <li><strong>1963–1975:</strong> कोटा और अजमेर के सरकारी कॉलेजों में प्रोफ़ेसर, विभागाध्यक्ष</li>
+      <li><strong>1975–1979:</strong> चित्तौड़गढ़, श्री गंगानगर और कोटा के सरकारी कॉलेजों के <strong>प्राचार्य</strong></li>
+    </ul>
+
+    <p>वे ऑल नेपाल कॉलेज स्पोर्ट्स बोर्ड के अध्यक्ष रहे, भारतीय अंग्रेज़ी अध्ययन संघ के महामंत्री (तीन बार), और राष्ट्रीय खेल चैंपियनशिप के स्मारिका के मुख्य संपादक।</p>
+
+    <p>हरिश जी को एक बार याद आता है — 1974 या 1975 में वे रात 1 बजे बिना टिकट चित्तौड़गढ़ पहुँचे। काकाजी ने खुद दरवाज़ा खोला: <em>"इतनी रात को कैसे आए?"</em> जाते वक्त किराया हाथ में थमाते हुए हँसकर बोले: <em>"वैसे तुम बदमाश बिना टिकट ही जाओगे।"</em> और वे गए भी।</p>
+
+    <p>एक और दृश्य: जब काकाजी और बाउजी दोनों उपस्थित थे, किसी ने बातचीत में कोई गलती कही। काकाजी ने धीरे से हरिश जी से कहा: <em>"भाई साहब ने वह बात ग़लत कही।"</em> हरिश जी ने कहा, तो सीधे कहिए। काकाजी शांत भाव से बोले: <em>"मैंने अपनी ज़िंदगी में उनसे कभी बहस नहीं की। और कभी किसी के सामने उनके विरुद्ध नहीं बोला।"</em></p>
+
+    <blockquote>
+      <p><em>"उस दिन मुझे लगा — रामायण के भरत और आज के लाजपत काकाजी एक ही आत्मा के दो रूप हैं।"</em><br>— हरिश शर्मा</p>
+    </blockquote>
+
+    <p>लाजपत राय शर्मा का निधन <strong>29 अप्रैल 2009</strong> को उदयपुर में 86 वर्ष की आयु में हुआ।</p>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/09_Family_Documents/Lajpat_Rai_Sharma_Biography.docx">लाजपत राय शर्मा — जीवन परिचय</a>
+    </div>
+
+    <hr>
+
+    <!-- ── भाग चार ── -->
+    <h2 id="bhaag-4">भाग चार: रामदयाल शर्मा — जोड़नेवाले</h2>
+
+    <p><strong>रामदयाल शर्मा</strong> — नारायण जी के ज्येष्ठ पुत्र — एक वरिष्ठ सरकारी पद से सेवानिवृत्त हुए, परंतु परिवार में वे सदा जोड़नेवाले के रूप में याद किए जाते हैं। बिना किसी पते और फ़ोन के वे एक बार हरिश जी के भिलवाड़ा घर तीन-चार घंटे पूछते-पूछते पहुँचे — सिर्फ मिलने के लिए। ट्रेन यात्राओं में अजनबियों से पते नोट करते, उन्हें जीवनभर की परिचित बना देते।</p>
+
+    <p>उनका विवाह <strong>चाँद देवी</strong> से हुआ था। तीन संतानें: <strong>सुदर्शना</strong> (जायलवाल परिवार में), <strong>सुनील दत्त</strong> और <strong>रवि दत्त</strong>। उनका निधन यात्रा के दौरान हुआ — जो परिवार को उचित ही लगता है।</p>
+
+    <hr>
+
+    <!-- ── भाग पाँच ── -->
+    <h2 id="bhaag-5">भाग पाँच: वे महिलाएँ जिन्होंने सब सँभाला</h2>
+
+    <p><strong>गेंदी देवी</strong> — नारायण शर्मा की दूसरी पत्नी — एक अदम्य शक्ति की तरह याद की जाती हैं। उनका स्वभाव तीखा था, पर रक्षा अटूट। बच्चों के लिए मोहल्ले के पचास लोगों से अकेले लड़ जाती थीं। गरीबी के बावजूद हर बच्चे को शिक्षा दिलाई। होली की रात जागकर घर की रखवाली करती थीं। पूरा मोहल्ला उन्हें <em>दादी</em> कहता था।</p>
+
+    <p><strong>चम्पावती देवी</strong> (जिन्हें <em>चम्पा दादी</em> भी कहते थे) — गोवर्धन खाती की दूसरी पत्नी, लाजपत राय की माँ — को घुमक्कड़ दिल की याद से जाना जाता है: कंधे पर खाकी थैला टाँगे, बिना बताए किसी भी रिश्तेदार के यहाँ पहुँच जाती थीं और हर कमरे को हँसी से भर देती थीं।</p>
+
+    <p><strong>अयोध्या देवी शर्मा</strong> — जन्म <strong>29 दिसम्बर 1926</strong>, अजमेर। <strong>विद्याविनोदिनी</strong> (हाईस्कूल) तक शिक्षा — उस युग की महिलाओं के लिए एक उल्लेखनीय उपलब्धि। <strong>भैरू लाल जी शर्मा</strong> से विवाह। परिवार में वे एकता की स्तंभ मानी जाती थीं — गहरी धार्मिक भावना और परिवार को जोड़े रखने की अटूट इच्छाशक्ति।</p>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/09_Family_Documents/Ayodhya_Devi_Sharma_Biography.docx">अयोध्या देवी शर्मा — जीवन परिचय</a>
+    </div>
+
+    <hr>
+
+    <!-- ── भाग छः ── -->
+    <h2 id="bhaag-6">भाग छः: दस्तावेज़ों की यात्रा — अधिकार की खोज (1991–1997)</h2>
+
+    <h3>1991: अजमेर रजिस्ट्री कार्यालय में आवेदन</h3>
+
+    <p><strong>27 नवम्बर 1991</strong> को <strong>लाजपत राव शर्मा</strong> ने अजमेर के उप-रजिस्ट्रार कार्यालय में एक औपचारिक आवेदन (अनुलग्नक 3, प्रपत्र 13, नियम 130B) दाखिल किया — अगस्त 1921 की पंजीकरण पुस्तिका में "वसीयत" की प्रविष्टि खोजने के लिए:</p>
+    <ul>
+      <li><strong>सम्पत्ति:</strong> 533, रामदयाल मोहल्ला, नसीराबाद</li>
+      <li><strong>स्वामी:</strong> गोर्धन (पिता)</li>
+      <li><strong>आवेदक:</strong> लाजपत राव शर्मा, उदयपुर</li>
+    </ul>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_05_p02.pdf">SR कार्यालय आवेदन 1991</a>
+    </div>
+
+    <h3>1997: परिवार को पत्र — हिस्सा माँगना</h3>
+
+    <p><strong>145, टैगोर नगर, हिरन मगरी, सेक्टर II, उदयपुर</strong> से <strong>लाजपत राय शर्मा</strong> ने <strong>श्री आर.डी. शर्मा, 369, विकास कुंज, विकासपुरी, नई दिल्ली – 18</strong> को पत्र लिखा — प्रतिलिपि सभी भाइयों को। पत्र का सार था: <em>"मेरा अपना घर नहीं है। नसीराबाद की संपत्ति में मेरा हिस्सा दीजिए।"</em></p>
+
+    <p>भाइयों ने अपना पक्ष रखा और काकाजी ने अंततः अपना दावा वापस ले लिया। हरिश जी आज भी सोचते हैं:</p>
+    <blockquote>
+      <p><em>"यदि उस समय काकाजी को उनका हिस्सा दे दिया होता, तो यह धर्म का काम होता — और वही प्रश्न जो अब उनके बच्चों के सामने है, उठता ही नहीं।"</em></p>
+    </blockquote>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_02_p01.pdf">रामदयाल को पत्र</a>
+      <a class="doc-ref" href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_04_p01.pdf">खूब चंद को पत्र (नसीराबाद)</a>
+      <a class="doc-ref" href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_03_p01.pdf">11 अप्रैल 1997 का पत्र</a>
+    </div>
+
+    <hr>
+
+    <!-- ── भाग सात ── -->
+    <h2 id="bhaag-7">भाग सात: छावनी बोर्ड का रिकॉर्ड</h2>
+
+    <p>नसीराबाद छावनी बोर्ड (NCB) की गुलाबी फ़ाइल — <em>NCB/Land/H.No./532-533, Vol. I, फ़ाइल 407</em> — में दर्ज है:</p>
+
+    <table>
+      <thead><tr><th>विवरण</th><th>मान</th></tr></thead>
+      <tbody>
+        <tr><td>विषय</td><td>नारायण पुत्र गोर्धन</td></tr>
+        <tr><td>RBID</td><td>ANASIR00706, ANASIR00709</td></tr>
+        <tr><td>सर्वे नं.</td><td>280/751 और 280/752</td></tr>
+        <tr><td>क्षेत्रफल</td><td>405 + 1,120 = <strong>1,525 वर्ग फुट</strong></td></tr>
+        <tr><td>पता</td><td>रामदयाल मोहल्ला (पूर्व: व्हाइट रोड), नसीराबाद</td></tr>
+      </tbody>
+    </table>
+
+    <p>1997 में LS नं. 302 के अंतर्गत संपत्ति उद्धरण प्रमाण-पत्र जारी हुआ (11.02.97 को आवेदन, 27.05.97 को प्राप्त, शुल्क ₹15)।</p>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/06_Cantonment_Board_NCB_File/NCB_File_Part_01_p01.pdf">NCB फ़ाइल — भाग 01</a>
+      <a class="doc-ref" href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_01_p01.pdf">LS नं. 302 प्रमाण-पत्र आवेदन</a>
+    </div>
+
+    <hr>
+
+    <!-- ── भाग आठ ── -->
+    <h2 id="bhaag-8">भाग आठ: संपत्ति सोती रही (~2001–2024)</h2>
+
+    <p>अनेक कारणों से — छावनी नियमावली, प्रशासनिक औपचारिकताएँ, और पूरे भारत में फैले बड़े परिवार की साधारण दूरी — <strong>मकान 532–533 को छावनी बोर्ड ने लगभग 2001 में सील कर दिया</strong> और वह <strong>23 से अधिक वर्षों</strong> तक बंद और अनदेखा पड़ा रहा।</p>
+
+    <p>अधिकांश परिवार के लिए घर की आंतरिक स्थिति अज्ञात थी। चाबियाँ खो गई थीं।</p>
+
+    <hr>
+
+    <!-- ── भाग नौ ── -->
+    <h2 id="bhaag-9">भाग नौ: परिवार जागा — फरवरी 2024</h2>
+
+    <p><strong>18 फरवरी 2024</strong> को दो चचेरे भाइयों — <strong>प्रवीण शर्मा</strong> (नारायण जी के पुत्र, गेंदी देवी के) और <strong>योगेश शर्मा</strong> (लाजपत राय शर्मा के पुत्र) — की फ़ोन पर बातचीत हुई। योगेश घर बेचने के बारे में सोच रहे थे। प्रवीण ने एक भिन्न दृष्टि रखी:</p>
+    <blockquote>
+      <p><em>"बेचने के बजाय हम इस पुराने घर को अपने पूर्वजों — गोवर्धन जी खाती, नारायण शर्मा और लाजपत राय शर्मा — का स्मारक बना दें। यह उनके वंशजों के लिए एक गेस्ट हाउस हो। यह हमारे परिवार का इतिहास संजोए।"</em></p>
+    </blockquote>
+
+    <p>योगेश ने तुरंत सहमति जताई। उन्होंने 13 उत्तराधिकारियों और 14 हिस्सेदारों से सहमति लेने का संकल्प लिया।</p>
+
+    <h3>परिवार का वृक्ष</h3>
+
+    <p><strong>नारायण शर्मा की ओर से:</strong></p>
+    <ul>
+      <li>राम दयाल शर्मा के बच्चे: सुदर्शना जायलवाल, सुनील दत्त शर्मा, रवि दत्त शर्मा</li>
+      <li>गेंदी देवी के बच्चे: राम चरण शर्मा, बाल कृष्ण शर्मा, प्रवीण शर्मा, उषा कुमार, हरिश शर्मा, आनंदी देवी बारानिया</li>
+    </ul>
+    <p><strong>लाजपत राय शर्मा की ओर से:</strong></p>
+    <ul>
+      <li>मंजु शर्मा, दिनेश शर्मा, राजनी शर्मा (स्वर्गीय राकेश शर्मा की पत्नी), बीना सक्सेना, दीपा शर्मा, योगेश शर्मा</li>
+      <li>स्व. श्री राकेश शर्मा के पुत्र/पुत्री</li>
+    </ul>
+
+    <p><strong>24 फरवरी 2024</strong> तक दूसरी बैठक में सहमति मिली: बाल कृष्ण, उषा कुमार, आनंदी देवी, हरिश, मंजु, दिनेश, राजनी, बीना, सुदर्शना, सुनील दत्त — सभी ट्रस्ट योजना से सहमत। एक व्यक्ति अनुपस्थित रहा: <strong>राम चरण शर्मा</strong> — जो केवल आमने-सामने बात करते थे।</p>
+
+    <hr>
+
+    <!-- ── भाग दस ── -->
+    <h2 id="bhaag-10">भाग दस: अजमेर यात्रा और घर खुला</h2>
+
+    <p><strong>3 मार्च 2024</strong> को बाल कृष्ण जी, हरिश जी, और योगेश जी अजमेर गए और <strong>राम चरण जी</strong> से व्यक्तिगत रूप से मिले। तीन प्रस्ताव रखे गए: (1) ट्रस्ट/स्मारक, (2) असहमत सदस्यों का हिस्सा देकर ट्रस्ट, (3) परिवार के सदस्य को बेचना। राम चरण जी का मत था: <strong>तीसरे पक्ष को बेचना</strong>। कोई सहमति नहीं बनी।</p>
+
+    <p><strong>4 मई 2024</strong> को परिवार पहली बार वर्षों बाद नसीराबाद घर में एकत्र हुआ। राम चरण जी की चाबियाँ भी गुम थीं। ताले बदले गए; चार सेट चाबियाँ वितरित: हरिश जी, प्रवीण जी, दिनेश जी, और पड़ोसी <strong>अशोक चौधरी, पुत्र नंदा गुर्जर</strong>।</p>
+
+    <p>रियल एस्टेट एजेंट <strong>परवेज़ मसूद</strong> का मूल्यांकन:</p>
+    <ul>
+      <li>प्रारंभिक बिक्री मूल्य: <strong>₹1,00,00,000 (1 करोड़)</strong></li>
+      <li>उनकी फ़ीस: ₹20,000 (दस्तावेज़ीकरण) + बिक्री का 1% कमीशन</li>
+    </ul>
+
+    <hr>
+
+    <!-- ── भाग ग्यारह ── -->
+    <h2 id="bhaag-11">भाग ग्यारह: लम्बी बातचीत (मई–सितम्बर 2024)</h2>
+
+    <p>मई-जून 2024 में घर पर "बिकाऊ है" के बोर्ड लगाए गए। बाज़ार से वास्तविक मूल्यांकन आया — <strong>₹25 लाख</strong> — जो परिवार की प्रारंभिक आशा ₹1 करोड़ से बहुत कम था।</p>
+
+    <p>गणना: ₹25 लाख ÷ 13 हिस्सेदार − ₹3 लाख खर्च = प्रति पूर्ण हिस्सा लगभग <strong>₹1,69,230</strong>।</p>
+
+    <p>जटिलता: <strong>राम चरण शर्मा ने ₹10 लाख</strong> की माँग रखी — किसी भी आनुपातिक हिस्से से कहीं अधिक। बातचीत के बाद माँग <strong>₹7 लाख</strong> पर आई।</p>
+
+    <p><strong>24 अगस्त 2024</strong> की बैठक में निर्णय: <strong>पी.के. शर्मा (प्रवीण कुमार शर्मा)</strong> ₹25 लाख में संपत्ति खरीदेंगे और पारिवारिक <em>स्मारक</em> बनाएँगे। संपत्ति के कागज़ात डॉ. बी.के. शर्मा के पास सुरक्षित रहेंगे।</p>
+
+    <hr>
+
+    <!-- ── भाग बारह ── -->
+    <h2 id="bhaag-12">भाग बारह: अंतिम निर्णय — 22 सितम्बर 2024</h2>
+
+    <p><strong>22 सितम्बर 2024</strong> तक औपचारिक प्रस्ताव:</p>
+
+    <table>
+      <thead><tr><th>व्यक्ति</th><th>प्रस्ताव</th></tr></thead>
+      <tbody>
+        <tr><td>अशोक (सामने के पड़ोसी)</td><td>₹22,00,000</td></tr>
+        <tr><td>प्रवीण जी (पी.के. शर्मा)</td><td>₹25,00,000</td></tr>
+        <tr><td>हरिश जी</td><td>₹31,00,000</td></tr>
+        <tr><td>बाल कृष्ण जी (डॉ. बी.के. शर्मा)</td><td>₹32,00,000</td></tr>
+      </tbody>
+    </table>
+
+    <blockquote>
+      <p><strong>प्रवीण जी और बाल कृष्ण जी का संयुक्त प्रस्ताव ₹25,00,000</strong> — प्रत्येक ₹12,50,000 — स्वीकार किया गया। संपत्ति को <strong>पारिवारिक ट्रस्ट</strong> में रखा जाएगा। भविष्य में कोई भी इसे बेच नहीं सकेगा।</p>
+    </blockquote>
+
+    <p>बाल कृष्ण जी: घर का मूल स्वरूप बना रहना चाहिए। <strong>सुनील दत्त जी</strong> को ट्रस्ट के सभी कानूनी दस्तावेज़ तैयार करने का दायित्व। बाल कृष्ण जी ₹25,000 प्रवीण जी को ट्रस्ट के काग़ज़ात शुरू करने के लिए देंगे।</p>
+    <div class="doc-ref-group">
+      <a class="doc-ref" href="References/09_Family_Documents/Nasirabad_Meeting_Minutes.docx">बैठक विवरण — सम्पूर्ण (2024)</a>
+    </div>
+
+    <hr>
+
+    <!-- ── Epilogue ── -->
+    <h2 id="epilogue">उपसंहार: घर में क्या है</h2>
+
+    <p>मकान 532–533, रामदयाल मोहल्ला, नसीराबाद छावनी — राजस्थान के एक छोटे से छावनी शहर में सर्वे नं. 280/751 और 280/752 पर लगभग 1,525 वर्ग फुट की एक साधारण इमारत। छावनी बोर्ड नसीराबाद की गुलाबी फ़ाइल नं. 407 में इसका औपचारिक विवरण दर्ज है।</p>
+
+    <p>लेकिन फ़ाइल में वह नहीं है जो घर में है।</p>
+
+    <p>घर में है <strong>गोवर्धन खाती</strong> की स्मृति, जिन्होंने इस भूमि पर अपने हाथों से काम किया। <strong>चम्पाबाई</strong> की याद, जिन्होंने 1926 में — एक विधवा के रूप में — असाधारण साहस से अपने दोनों बेटों की विरासत सुरक्षित की। <strong>नारायण शर्मा</strong> की छाया, जिन्होंने अपनी पूरी ज़िंदगी में कभी झूठ नहीं बोला। <strong>लाजपत राय शर्मा</strong> की उपस्थिति, जो एक गाँव के लड़के की शिक्षा को नेपाल के कक्षाओं और राजस्थान के कॉलेजों तक ले गए। <strong>गेंदी देवी</strong> की रक्षा, जो मोहल्ले की चौकीदार थीं। <strong>चम्पा दादी</strong> का अचानक प्रकट होना, जो हर घर को हँसी से भर देती थीं।</p>
+
+    <p>इसमें हैं ग्यारह बैठकें — Google Meet पर, फ़ोन कॉल पर, पूरे भारत और विदेश से — बेटे, बेटियाँ, पोते, परपोते उन लोगों के जो कभी उस आँगन में खेलते थे — बहस करते, सौदेबाज़ी करते, याद करते, यह तय करने की कोशिश करते कि उस चीज़ का क्या करें जो <em>"महज़ ईंट-पत्थर नहीं, बल्कि महान आत्माओं की छाया है।"</em></p>
+
+    <blockquote>
+      <p><em>"यदि हम बाउजी की आत्मा को शांति देना चाहते हैं, तो एकमात्र रास्ता है — नसीराबाद संपत्ति का शांतिपूर्ण समाधान। बाउजी की आत्मा ऊपर से देख रही है और उसे शांति चाहिए। उनके मार्गदर्शन का सम्मान करें और परिवार की एकता की ओर दृढ़ कदम बढ़ाएँ। यही उनके प्रति हमारी सच्ची श्रद्धांजलि होगी।"</em><br>— हरिश शर्मा</p>
+    </blockquote>
+
+    <hr>
+
+    <!-- ── References ── -->
+    <div class="ref-section" id="references">
+      <h2>संदर्भ दस्तावेज़</h2>
+
+      <h3>1. मूल ऐतिहासिक दस्तावेज़</h3>
+      <table>
+        <thead><tr><th>दस्तावेज़</th><th>दिनांक</th><th>फ़ाइल</th></tr></thead>
+        <tbody>
+          <tr><td>पंजीकृत विलेख — पृष्ठ 1</td><td>19 अगस्त 1921</td><td><a href="References/01_Registered_Deed_1921/Deed_Page_1.pdf">Deed_Page_1.pdf</a></td></tr>
+          <tr><td>पंजीकृत विलेख — पृष्ठ 2</td><td>19 अगस्त 1921</td><td><a href="References/01_Registered_Deed_1921/Deed_Page_2.pdf">Deed_Page_2.pdf</a></td></tr>
+          <tr><td>पंजीकृत विलेख — पृष्ठ 3</td><td>19 अगस्त 1921</td><td><a href="References/01_Registered_Deed_1921/Deed_Page_3.pdf">Deed_Page_3.pdf</a></td></tr>
+          <tr><td>छावनी कार्यालय फ़ाइल 36/37</td><td>27 अप्रैल 1925</td><td><a href="References/02_Cantonment_Office_Files_1925/Office_File_36_37_Page_1.pdf">Office_File_36_37_Page_1.pdf</a></td></tr>
+          <tr><td>छावनी कार्यालय फ़ाइल 38</td><td>14 अप्रैल 1925</td><td><a href="References/02_Cantonment_Office_Files_1925/Office_File_36_37_Page_2.pdf">Office_File_36_37_Page_2.pdf</a></td></tr>
+          <tr><td>चम्पाबाई की घोषणा</td><td>2 जुलाई 1926</td><td><a href="References/03_Champabai_Declaration_1926/Champabai_Declaration_1926.jpeg">Champabai_Declaration_1926.jpeg</a></td></tr>
+          <tr><td>अनाधिकृत निर्माण रिपोर्ट</td><td>15 जून 1970</td><td><a href="References/04_Construction_Report_1970/Unauthorized_Construction_Report_1970.pdf">Construction_Report_1970.pdf</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3>2. एल.आर. शर्मा के दस्तावेज़ (1991–1997)</h3>
+      <table>
+        <thead><tr><th>दस्तावेज़</th><th>फ़ाइल</th></tr></thead>
+        <tbody>
+          <tr><td>LS नं. 302 प्रमाण-पत्र आवेदन</td><td><a href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_01_p01.pdf">LR_Sharma_Part_01_p01.pdf</a></td></tr>
+          <tr><td>रामदयाल को पत्र</td><td><a href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_02_p01.pdf">LR_Sharma_Part_02_p01.pdf</a></td></tr>
+          <tr><td>11 अप्रैल 1997 का पत्र (नई दिल्ली)</td><td><a href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_03_p01.pdf">LR_Sharma_Part_03_p01.pdf</a></td></tr>
+          <tr><td>खूब चंद शर्मा को पत्र</td><td><a href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_04_p01.pdf">LR_Sharma_Part_04_p01.pdf</a></td></tr>
+          <tr><td>SR कार्यालय आवेदन (1991)</td><td><a href="References/05_LR_Sharma_Documents_1991_1997/LR_Sharma_Part_05_p02.pdf">LR_Sharma_Part_05_p02.pdf</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3>3. छावनी बोर्ड NCB फ़ाइल</h3>
+      <table>
+        <thead><tr><th>फ़ाइल</th></tr></thead>
+        <tbody>
+          <tr><td><a href="References/06_Cantonment_Board_NCB_File/NCB_File_Part_01_p01.pdf">NCB_File_Part_01_p01.pdf</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3>4. पारिवारिक दस्तावेज़</h3>
+      <table>
+        <thead><tr><th>दस्तावेज़</th><th>फ़ाइल</th></tr></thead>
+        <tbody>
+          <tr><td>बैठक विवरण (2024)</td><td><a href="References/09_Family_Documents/Nasirabad_Meeting_Minutes.docx">Nasirabad_Meeting_Minutes.docx</a></td></tr>
+          <tr><td>परिवार की यादें — हरिश शर्मा</td><td><a href="References/09_Family_Documents/Parivaar_Ki_Yaadein.docx">Parivaar_Ki_Yaadein.docx</a></td></tr>
+          <tr><td>लाजपत राय शर्मा — जीवन परिचय</td><td><a href="References/09_Family_Documents/Lajpat_Rai_Sharma_Biography.docx">Lajpat_Rai_Sharma_Biography.docx</a></td></tr>
+          <tr><td>अयोध्या देवी शर्मा — जीवन परिचय</td><td><a href="References/09_Family_Documents/Ayodhya_Devi_Sharma_Biography.docx">Ayodhya_Devi_Sharma_Biography.docx</a></td></tr>
+          <tr><td>पारिवारिक वंशावली</td><td><a href="References/09_Family_Documents/Family_Tree.ged">Family_Tree.ged</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      दस्तावेज़ संकलित और कहानी पुनर्निर्मित: <strong>योगेश शर्मा</strong>, मई 2026
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>
+
