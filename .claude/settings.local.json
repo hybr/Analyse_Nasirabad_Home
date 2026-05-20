@@ -4,7 +4,14 @@
       "Bash(python -c \"import sys; print\\(sys.version\\)\")",
       "Bash(python -c \"import pypdf; print\\('pypdf ok'\\)\")",
       "Bash(pip install *)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "PowerShell(python -c \"import pypdf; print\\(pypdf.__version__\\)\" 2>&1)",
+      "PowerShell(python -c \"import PyPDF2; print\\(PyPDF2.__version__\\)\" 2>&1)",
+      "PowerShell(python -c \"import pikepdf; print\\(pikepdf.__version__\\)\" 2>&1)",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\fwyog\\\\Downloads\\\\Analyse_Nasirabad_Home\\\\References\\\\10_Hindi_Transcription_Deed_1921_1926\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\fwyog\\\\Downloads\\\\Analyse_Nasirabad_Home\\\\References\\\\11_Lajpat_Rai_Education\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\fwyog\\\\Downloads\\\\Analyse_Nasirabad_Home\\\\References\\\\12_Family_Card\")",
+      "PowerShell(python \"c:\\\\Users\\\\fwyog\\\\Downloads\\\\Analyse_Nasirabad_Home\\\\New_docs\\\\split_pdfs.py\")"
     ]
   }
 }
